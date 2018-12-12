@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../login/layui/css/layui.css">
+</head>
+<body>
+<div class="">
+    <form class="layui-form" action="">
+        <div class="layui-row">
+            <div class="layui-col-md4">
+                <div class="layui-form-item">
+                        <input type="radio" name="queryType" value="1" title="按资料名称">
+                        <input type="radio" name="queryType" value="2" title="按小组名称" checked>
+                </div>
+            </div>
+            <div class="layui-col-md2">
+                <div class="layui-form-item">
+                        <input type="text" name="condition" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-col-md2">
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="search">搜索</button>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md2">
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <label class="layui-btn" id="uploadBtn">上传资料</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="layui-row">
+        <div class="layui-col-md11">
+            <table class="layui-hide" id="dataTab" lay-filter="dataTab"></table>
+        </div>
+    </div>
+    <div class="layui-row detail">
+        <div class="layui-col-md11">
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">资料简介</label>
+                <div class="layui-input-block">
+                    <textarea id="desc" class="layui-textarea" readonly="readonly"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-row detail">
+        <div class="layui-col-md11">
+            <table class="layui-hide" id="detailTab" lay-filter="detailTab"></table>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/html" id="deldatabar">
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script type="text/html" id="datanameTpl">
+    <a href="javascript:;" class="layui-table-link" dataid={{d.id}} onclick="lookdetail(this)">{{ d.dataname }}</a>
+</script>
+<script type="text/html" id="filenameTpl">
+    <a href="{{d.filepath}}" class="layui-table-link">{{ d.filename }}</a>
+</script>
+<script src="../../login/js/jquery.min.js"></script>
+<script src="../../login/layui/layui.all.js"></script>
+<script src="./data.js"></script>
+
+</html>

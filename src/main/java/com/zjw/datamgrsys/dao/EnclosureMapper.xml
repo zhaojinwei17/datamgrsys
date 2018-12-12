@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjw.datamgrsys.dao.EnclosureMapper">
+    <insert id="insert" parameterType="enclosure">
+        <selectKey resultType="int" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into enclosure (dataid,filename,filepath,filesize,uploadtime) values(
+            #{dataid},#{filename},#{filepath},#{filesize},#{uploadtime}
+        )
+    </insert>
+    <select id="findByDataId" parameterType="int" resultType="enclosure">
+        select * from enclosure where dataid=#{dataid}
+    </select>
+    <delete id="delByDataId" parameterType="int">
+        delete from enclosure where dataid=#{dataid}
+    </delete>
+</mapper>

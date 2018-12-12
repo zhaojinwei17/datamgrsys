@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjw.datamgrsys.dao.DataMapper">
+    <select id="findDataById" parameterType="int" resultType="data">
+        select * from data where id=#{id}
+    </select>
+    <select id="findByData" parameterType="data" resultType="data">
+        select * from data where dataname=#{dataname} and uploadmen=#{uploadmen} and memo=#{memo} and ip=#{ip}
+    </select>
+
+    <select id="findAllData" resultType="data">
+        select * from data
+    </select>
+
+    <select id="findDataByName" parameterType="string" resultType="data">
+        select * from data where dataname like"%"#{dataname}"%"
+    </select>
+    <select id="findDataByGroupName" parameterType="string" resultType="data">
+        select * from data where groupname like"%"#{groupname}"%"
+    </select>
+    <insert id="insert" parameterType="user" >
+        <selectKey resultType="int" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+      insert into data (dataname,groupname,uploadmen,memo,enclosure,ip,createtime,updatetime,times) values (
+        #{dataname},#{groupname},#{uploadmen},#{memo},#{enclosure},#{ip},#{createtime},#{updatetime},#{times}
+        )
+    </insert>
+    <update id="update" parameterType="data">
+        update data set dataname=#{dataname},groupname=#{groupname},uploadmen=#{uploadmen},
+                        memo=#{memo},enclosure=#{enclosure},ip=#{ip},updatetime=#{updatetime},times=#{times}
+        where id=#{id}
+    </update>
+    <delete id="delById" parameterType="int">
+        delete from data where id=#{id}
+    </delete>
+</mapper>

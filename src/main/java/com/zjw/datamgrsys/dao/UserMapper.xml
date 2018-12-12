@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjw.datamgrsys.dao.UserMapper">
+    <select id="findUserById" parameterType="int" resultType="user">
+        select * from User where id=#{id}
+    </select>
+    <select id="findUserByName" parameterType="string" resultType="user">
+        select * from user where name=#{name}
+    </select>
+    <insert id="insert" parameterType="user" >
+        <selectKey resultType="int" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+      insert into user (name,password,classes,phone,groupname,roleid,cremen,createtime,updatemen,updatetime) values (
+          #{name},#{password},#{classes},#{phone},#{groupname},#{roleid},#{cremen},#{createtime},#{updatemen},#{updatetime}
+        )
+    </insert>
+</mapper>

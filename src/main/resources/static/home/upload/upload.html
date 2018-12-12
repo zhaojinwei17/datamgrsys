@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload</title>
+    <link rel="stylesheet" href="../../login/layui/css/layui.css">
+</head>
+<body>
+<form  class="layui-form">
+    <div class="layui-row">
+        <div class="layui-col-md5">
+            <div class="layui-form-item">
+                <label class="layui-form-label">资料名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="dataname" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">小组名称</label>
+                <div class="layui-input-block">
+                    <input type="text" id="groupname" name="groupname" placeholder="请输入" autocomplete="off" class="layui-input" readonly="readonly">
+                </div>
+            </div>
+
+        </div>
+        <div class="layui-col-md5">
+            <div class="layui-form-item">
+                <label class="layui-form-label">上传人</label>
+                <div class="layui-input-block">
+                    <input type="text" id="uploadmen" name="uploadmen" placeholder="请输入" autocomplete="off" class="layui-input" readonly="readonly">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">资料简介</label>
+                <div class="layui-input-block">
+                    <textarea name="memo" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="layui-upload">
+                <button type="button" class="layui-btn layui-btn-normal" id="testList">选择多文件</button>
+                <div class="layui-upload-list">
+                    <table class="layui-table">
+                        <thead>
+                        <tr><th>文件名</th>
+                            <th>大小</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr></thead>
+                        <tbody id="demoList"></tbody>
+                    </table>
+                </div>
+                <button type="button" class="layui-btn" id="testListAction">开始上传</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </div>
+</form>
+<script src="../../login/js/jquery.min.js"></script>
+<script src="../../login/layui/layui.all.js"></script>
+<script src="../commons/commons.js"></script>
+<script src="./upload.js"></script>
+
+</body>
+</html>
