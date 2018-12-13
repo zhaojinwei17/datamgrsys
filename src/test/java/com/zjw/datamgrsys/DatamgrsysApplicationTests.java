@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.io.File;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -40,10 +41,9 @@ public class DatamgrsysApplicationTests {
 //        System.out.println(passwordEncoder.encode("skjdgajdgj"));
 //        System.out.println(passwordEncoder.encode("skjdgajdgj"));
 
-        for (int i = 0; i < 10; i++) {
-            System.out.println(new DatamgrsysApplicationTests());
-        }
 
+        File file=new File("/Users/zhaojinwei/Desktop/a");
+        System.out.println(file.list().length);
     }
 
 }

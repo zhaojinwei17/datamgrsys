@@ -18,7 +18,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         HttpSession session = request.getSession();
         String json = (String) session.getAttribute(sessionId);
         if (json==null){
-            response.sendRedirect("/mgr/login/login.html");
+            response.sendRedirect(getUrl(request)+"login/login.html");
             return false;
         }
         return true;
@@ -32,5 +32,8 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 
+    }
+    private String getUrl(HttpServletRequest request){
+        return request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/";
     }
 }

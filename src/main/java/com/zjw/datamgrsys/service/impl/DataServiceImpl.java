@@ -16,7 +16,6 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -87,8 +86,10 @@ public class DataServiceImpl implements DataService {
                         if (!newFile.exists()){
                             newFile.mkdirs();
                         }
-                        String ext=fileName.substring(fileName.lastIndexOf("."));
-                        path=path+"/"+UUID.randomUUID()+"/"+fileName;
+                        path=path+"/"+newFile.list().length;
+                        newFile=new File(realPath+path);
+                        newFile.mkdirs();
+                        path=path+"/"+fileName;
                         newFile=new File(realPath+path);
                         file.transferTo(newFile);
                         Enclosure enclosure=new Enclosure();

@@ -13,7 +13,7 @@ var Data={
 
 renderTable=function(data){
     $.ajax({
-        url:"/mgr/data/detail",
+        url: ctx+"data/detail",
         type : "post",
         data: data,
         success:function(result){
@@ -43,7 +43,7 @@ renderTable=function(data){
                     layer.confirm('真的删除行么', function(index){
                         debugger
                         $.ajax({
-                            url:"/mgr/data/deldata",
+                            url: ctx+"data/deldata",
                             type : "post",
                             data: {id:data.id},
                             success:function(result){
@@ -69,7 +69,7 @@ openUpload=function(){
         shade: false,
         maxmin: true, //开启最大化最小化按钮
         area: ['1000px', '600px'],
-        content: '../upload/upload.html'
+        content: ctx+'home/upload/upload.html'
     });
 }
 
@@ -81,7 +81,7 @@ openDetail=function(){
         shade: false,
         maxmin: true, //开启最大化最小化按钮
         area: ['1000px', '600px'],
-        content: '../detail/detail.html'
+        content: ctx+'home/detail/detail.html'
     });
 }
 $(function () {
@@ -102,7 +102,7 @@ lookdetail=function(a){
 }
 renderDetailTable=function(dataid){
     $.ajax({
-        url:"/mgr/data/getenclosure",
+        url: ctx+"data/getenclosure",
         type : "post",
         data: {dataid:dataid},
         success:function(result){

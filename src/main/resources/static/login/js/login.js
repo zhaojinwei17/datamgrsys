@@ -9,13 +9,13 @@ layui.form.on('submit(login)', function(data){
         return false;
     }
     $.ajax({
-        url:"/mgr/login/login",
+        url: ctx+"login/login",
         type : "post",
         data: json,
         success:function(result){
             if(result.status===200){
                 layer.msg('成功！', {icon: 6});
-                window.location.href="../../mgr/home/page/home.html";
+                window.location.href=ctx+"home/page/home.html";
             }else {
                 layer.msg(result.msg, {icon: 5});
             }

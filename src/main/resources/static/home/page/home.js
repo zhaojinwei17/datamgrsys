@@ -4,17 +4,17 @@ $(function () {
 })
 
 setIframe=function () {
-    $("#contentPage").attr("src","../data/data.html")
+    $("#contentPage").attr("src",ctx+"home/data/data.html")
 }
 
 logout=function () {
     $.ajax({
-        url:"/mgr/login/logout",
+        url: ctx+"login/logout",
         type : "post",
         success:function(result){
             if(result.status===200){
                 layer.msg('成功！', {icon: 6});
-                window.location.href="../login.html";
+                window.location.href=ctx+"login/login.html";
             }else {
                 layer.msg(result.msg, {icon: 5});
             }
@@ -26,12 +26,12 @@ logout=function () {
 }
 getuser=function () {
     $.ajax({
-        url:"/mgr/login/getuser",
+        url: ctx+"login/getuser",
         type : "post",
         success:function(result){
             if(result.status===200){
                 debugger
-                $("#user").html("<img src=\"../../login/images/user.jpg\" class=\"layui-nav-img\">"+result.data.name)
+                $("#user").html("<img src='"+ctx+" login/images/user.jpg' class='layui-nav-img'>"+result.data.name)
             }else {
                 layer.msg(result.msg, {icon: 5});
             }

@@ -8,7 +8,7 @@ var $ = layui.jquery
 var demoListView = $('#demoList')
     ,uploadListIns = upload.render({
     elem: '#testList'
-    ,url: '/mgr/data/upload'
+    ,url: ctx+'data/upload'
     ,accept: 'file'
     ,multiple: true
     ,auto: false
@@ -78,7 +78,7 @@ $(function () {
 
 getuser=function () {
     $.ajax({
-        url:"/mgr/login/getuser",
+        url: ctx+"login/getuser",
         type : "post",
         success:function(result){
             if(result.status===200){

@@ -39,6 +39,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
@@ -114,7 +115,7 @@
                 <filtering>false</filtering>
             </resource>
         </resources>
-        <finalName>/mgr</finalName>
+        <finalName>mgr</finalName>
     </build>
 
 

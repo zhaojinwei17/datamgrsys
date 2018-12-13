@@ -26,7 +26,7 @@ layui.form.on('submit(register)', function(data){
         return false;
     }
     $.ajax({
-        url:"/mgr/login/register",
+        url: ctx+"login/register",
         type : "post",
         data: json,
         success:function(result){
